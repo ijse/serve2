@@ -19,6 +19,7 @@ Options:
   -F, --format <fmt>   specify the log format string
   -p, --port <port>    specify the port [3000]
   -f, --favicon <path> serve the given favicon
+  -m, --mocks <path>    mock files directory
   -H, --hidden         enable hidden file serving
   -C, --cors           allows cross origin access serving
   -S, --no-stylus      disable stylus rendering
