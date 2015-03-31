@@ -32,6 +32,7 @@ program
   .option('-D, --no-dirs', 'disable directory serving')
   .option('-f, --favicon <path>', 'serve the given favicon')
   .option('-M, --mocks <path>', 'mock files directory')
+  .option('    --cookies', 'add cookies parse support')
   .option('-C, --cors', 'allows cross origin access serving')
   .option('    --compress', 'gzip or deflate the response')
   .option('    --exec <cmd>', 'execute command on each request')
@@ -115,6 +116,11 @@ if (program.exec) {
   server.use(function (req, res, next){
     exec(program.exec, next);
   });
+}
+
+// cookies parse support
+if (program.cookies) {
+  server.use(connect.cookieParser());
 }
 
 // use mock files
