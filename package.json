@@ -7,13 +7,16 @@
     "server",
     "connect"
   ],
-  "author": [{
-    "name": "TJ Holowaychuk",
-    "email": "tj@vision-media.ca"
-    }, {
+  "author": [
+    {
+      "name": "TJ Holowaychuk",
+      "email": "tj@vision-media.ca"
+    },
+    {
       "name": "ijse",
       "email": "i@ijser.cn"
-  }],
+    }
+  ],
   "preferGlobal": true,
   "homepage": "https://github.com/ijse/serve2",
   "repository": {
@@ -25,6 +28,7 @@
     "connect": "2.3.x",
     "jade": "*",
     "less-middleware": "0.1.x",
+    "proxy-middleware": "^0.11.0",
     "stylus": "*"
   },
   "bin": {

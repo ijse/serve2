@@ -1,9 +1,9 @@
 
 # serve2
 
-  Forked from [tj/serve](http://github.com/visionmedia/serve), add dynamic file process function. Since it's not only a *file / directory server*, I create a new repository.
+  Forked from [tj/serve](http://github.com/visionmedia/serve), add dynamic file process function. Since it's now more than a *file / directory server*, I create a new repository.
 
-  We can use `serve2` not only serve static file and directories, but dynamic process the http requests.
+  We can use `serve2` not only serve static file and directories, but dynamic process the http requests, even proxy.
 
 ## Installation
 
@@ -40,7 +40,7 @@ Options:
 
 ## Examples
 
- Mock files:
+  Mock files:
 
     // mock/test.js
     module.exports = function(req, res, next) {
@@ -53,7 +53,7 @@ Options:
     $ serve2 -M ./mock
     serving E:\worktop\serve2\test-res on port 3000
 
- HTTP Accept support built into `connect.directory()`:
+  HTTP Accept support built into `connect.directory()`:
 
      $ curl http://local:3000/ -H "Accept: text/plain"
      bin
@@ -73,6 +73,16 @@ Options:
 
     $ curl http://local:3000/ -H "Accept: application/json"
     ["bin","History.md","node_modules","package.json","Readme.md"]
+
+  Http proxy:
+
+    // proxylist.json
+    {
+      "/": "http://www.baidu.com",
+      "/t/180521": "https://www.v2ex.com"
+    }
+
+  done!
 
  Directory listing served by connect's `connect.directory()` middleware.
 

@@ -13,6 +13,7 @@ var resolve = require('path').resolve
   , jade = require('jade')
   , less = require('less-middleware')
   , url = require('url')
+  , proxy = require('proxy-middleware')
   , fs = require('fs');
 
 // CLI
@@ -115,6 +116,33 @@ if (program.compress) {
 if (program.exec) {
   server.use(function (req, res, next){
     exec(program.exec, next);
+  });
+}
+
+// check if .proxylist exists...
+var proxyFile = join(path, 'proxylist.json');
+if (fs.existsSync(proxyFile)) {
+  var proxyList = {};
+
+  function readProxyFile() {
+    fs.readFile(proxyFile, function(err, data) {
+      proxyList = JSON.parse(''+data);
+    });
+  }
+  // initially reading proxy file
+  readProxyFile();
+  // watch proxyfile changes
+  fs.watchFile(proxyFile, readProxyFile);
+
+  // apply proxy at each request
+  server.use("/", function(req, res, next) {
+    var proxyTo = proxyList[req._parsedUrl.pathname];
+    if(!proxyTo) {
+      return next();
+    } else {
+      var proxyOptions = url.parse(proxyTo);
+      return proxy(proxyOptions)(req, res, next);
+    }
   });
 }
 
