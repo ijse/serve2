@@ -122,6 +122,9 @@ if (program.mocks) {
 
   var mockDir = join(path, program.mocks);
 
+  server.use(connect.query());
+  server.use(connect.bodyParser());
+
   server.use(function (req, res, next){
     var mfile = join(mockDir, req._parsedUrl.pathname);
 
@@ -130,7 +133,11 @@ if (program.mocks) {
       var mock = require(mfile);
 
       if(typeof mock === 'function') {
-        mock(req, res, next);
+        try {
+          mock(req, res, next);
+        } catch(e) {
+          console.error(e);
+        }
       } else if(typeof mock === 'object') {
 
         // try parsing as json
