@@ -1,18 +1,24 @@
 {
-  "name": "serve",
-  "version": "1.4.0",
-  "description": "Simple command-line file / directory server built with connect",
+  "name": "serve2",
+  "version": "1.0.0",
+  "description": "Simple command-line node.js server built with connect",
   "keywords": [
     "static",
     "server",
     "connect"
   ],
-  "author": "TJ Holowaychuk <tj@vision-media.ca>",
+  "author": [{
+    "name": "TJ Holowaychuk",
+    "email": "tj@vision-media.ca"
+    }, {
+      "name": "ijse",
+      "email": "i@ijser.cn"
+  }],
   "preferGlobal": true,
-  "homepage": "https://github.com/visionmedia/serve",
+  "homepage": "https://github.com/ijse/serve2",
   "repository": {
     "type": "git",
-    "url": "https://github.com/visionmedia/serve.git"
+    "url": "https://github.com/ijse/serve2.git"
   },
   "dependencies": {
     "commander": "0.6.1",
@@ -22,6 +28,6 @@
     "stylus": "*"
   },
   "bin": {
-    "serve": "./bin/serve"
+    "serve2": "./bin/serve2"
   }
 }

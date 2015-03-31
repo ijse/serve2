@@ -1,42 +1,60 @@
 
-# serve
+# serve2
 
-  Simple 5 minute command-line file / directory server built with connect, inspired by nodejitsu's [http-server](https://github.com/nodejitsu/http-server) to show off the simplicity and flexibility of connect as a modular server.
+  Forked from [tj/serve](http://github.com/visionmedia/serve), add dynamic file process function. Since it's not only a *file / directory server*, I create a new repository.
+
+  We can use `serve2` not only serve static file and directories, but dynamic process the http requests.
 
 ## Installation
 
-    $ npm install -g serve
+    $ npm install -g serve2
 
 ## Usage
 
 ```
 
-Usage: serve [options] [dir]
+Usage: serve2 [options] [dir]
 
 Options:
 
-  -v, --version        output the version number
-  -F, --format <fmt>   specify the log format string
-  -p, --port <port>    specify the port [3000]
-  -f, --favicon <path> serve the given favicon
-  -m, --mocks <path>    mock files directory
-  -H, --hidden         enable hidden file serving
-  -C, --cors           allows cross origin access serving
-  -S, --no-stylus      disable stylus rendering
-  -J, --no-jade        disable jade rendering
-      --no-less        disable less css rendering
-  -I, --no-icons       disable icons
-  -L, --no-logs        disable request logging
-  -D, --no-dirs        disable directory serving
-      --compress       gzip or deflate the response
-      --exec <cmd>     execute command on each request
-  -h, --help           output usage information
+    -h, --help                output usage information
+    -V, --version             output the version number
+    -a, --auth <user>:<pass>  specify basic auth credentials
+    -F, --format <fmt>        specify the log format string
+    -p, --port <port>         specify the port [3000]
+    -H, --hidden              enable hidden file serving
+    -S, --no-stylus           disable stylus rendering
+    -J, --no-jade             disable jade rendering
+        --no-less             disable less css rendering
+    -I, --no-icons            disable icons
+    -L, --no-logs             disable request logging
+    -D, --no-dirs             disable directory serving
+    -f, --favicon <path>      serve the given favicon
+    -M, --mocks <path>        mock files directory
+        --cookies             add cookies parse support
+    -C, --cors                allows cross origin access serving
+        --compress            gzip or deflate the response
+        --exec <cmd>          execute command on each request
+
 ```
 
 ## Examples
 
+ Mock files:
+
+    // mock/test.js
+    module.exports = function(req, res, next) {
+      var query = req.query;
+        var reqBody = req.body;
+        // ...
+        res.end(query.hi);
+    }
+
+    $ serve2 -M ./mock
+    serving E:\worktop\serve2\test-res on port 3000
+
  HTTP Accept support built into `connect.directory()`:
- 
+
      $ curl http://local:3000/ -H "Accept: text/plain"
      bin
      History.md
@@ -60,7 +78,7 @@ Options:
 
   ![directory listings](http://f.cl.ly/items/100M2C3o0p2u3A0q1o3H/Screenshot.png)
 
-## License 
+## License
 
 (The MIT License)
 
