@@ -3,16 +3,11 @@
 /**
  * Module dependencies.
  */
-var resolve = require('path').resolve;
 
 // CLI
-var program = require('../lib/cli');
-program.parse(process.argv);
-
-var path = resolve(program.args[0] || '.');
-var server = require('../lib').createServer(program);
+var server = require('../lib').createServer(process.argv);
 
 // start the server
-server.listen(program.port, function () {
-  console.log('\033[90mserving \033[36m%s\033[90m on port \033[96m%d\033[0m', path, program.port);
+server.listen(server.program.port, function () {
+  console.log('\033[90mserving \033[36m%s\033[90m on port \033[96m%d\033[0m', server.path, server.program.port);
 });

@@ -2,12 +2,10 @@
 var should = require('should');
 var request = require('supertest');
 
-var Cli = require('../lib/cli');
 var Lib = require('../lib');
 
 function create(command) {
-  var program = Cli.parse(command);
-  return Lib.createServer(program);
+  return Lib.createServer(command);
 }
 
 describe('Test serve2 lib with all default', function() {
@@ -35,7 +33,7 @@ describe('Test serve2 lib with all default', function() {
 
 describe('Test Serve2 lib with mock file on 9876 port', function() {
 
-  var server = create([ , ,'-M', 'mock', '-p', '9876', './test/test-res']);
+  var server = create([ , , '-M', 'mock', '-p', '9876', './test/test-res']);
   it('support static file', function(done) {
 
     request(server)
