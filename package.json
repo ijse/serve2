@@ -33,5 +33,14 @@
   },
   "bin": {
     "serve2": "./bin/serve2"
+  },
+  "scripts": {
+    "test": "mocha --report spec ./test/test.js"
+  },
+  "main": "./lib/index.js",
+  "devDependencies": {
+    "mocha": "^2.2.1",
+    "should": "^5.2.0",
+    "supertest": "^0.15.0"
   }
 }
