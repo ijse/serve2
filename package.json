@@ -3,7 +3,6 @@
   "version": "1.0.1",
   "description": "Simple command-line node.js server built with connect",
   "keywords": [
-    "static",
     "server",
     "connect"
   ],

@@ -90,6 +90,13 @@ Options:
 
   ![directory listings](http://f.cl.ly/items/100M2C3o0p2u3A0q1o3H/Screenshot.png)
 
+## Contribution
+
+```
+npm install --development
+npm test
+```
+
 ## License
 
 (The MIT License)
