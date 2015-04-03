@@ -2,10 +2,10 @@
 var should = require('should');
 var request = require('supertest');
 
-var Lib = require('../lib');
+var Serve2 = require('../lib');
 
 function create(command) {
-  return Lib.createServer(command);
+  return new Serve2(command).getInstance();
 }
 
 describe('Test serve2 lib with all default', function() {

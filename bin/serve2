@@ -5,9 +5,10 @@
  */
 
 // CLI
-var server = require('../lib').createServer(process.argv);
+var Server = require('../lib');
+var server = new Server(process.argv);
 
-// start the server
-server.listen(server.program.port, function () {
-  console.log('\033[90mserving \033[36m%s\033[90m on port \033[96m%d\033[0m', server.path, server.program.port);
+server.start(function() {
+  console.log('\033[90mserving \033[36m%s\033[90m on port \033[96m%d\033[0m', server.path, server.settings.port);
 });
+

@@ -1,7 +1,7 @@
 
 # serve2
 
-> If you want set up simple http service with **more than** a static server, you're gonna need this!
+> If you want to set up simple http services with **more than** a static server, you're gonna need this!
 
   Forked from [tj/serve](http://github.com/visionmedia/serve), add dynamic file process function. Since it's now more than a *file / directory server*, I create a new repository.
 
