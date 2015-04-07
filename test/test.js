@@ -8,6 +8,29 @@ function create(command) {
   return new Serve2(command).getInstance();
 }
 
+describe('Test serve2 interface', function() {
+
+  it('support commander instance object as argument', function() {
+    (function() {
+      var arg = require('../lib/cli.js').parse([]);
+      var server = new Serve2(arg).getInstance();
+    }).should.not.throw();
+  });
+
+  it('should throw error when args is not valid', function() {
+    (function() {
+      var server = new Serve2(null).getInstance();
+    }).should.throw();
+  });
+
+  it('should throw error when args is array', function() {
+    (function() {
+      var server = new Serve2([]).getInstance();
+    }).should.not.throw();
+  });
+
+});
+
 describe('Test serve2 lib with all default', function() {
   var server = create([]);
   it('use current folder as default', function(done) {
