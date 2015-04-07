@@ -7,6 +7,9 @@
 
   We can use `serve2` not only serve static file and directories, but dynamic process the http requests, even proxy.
 
+
+中文说明： https://www.ijser.cn/simple-command-line-node-js-server/
+
 ## Installation
 
     $ npm install -g serve2
