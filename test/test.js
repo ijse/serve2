@@ -90,7 +90,7 @@ describe('Test Serve2 lib with mock file on 9876 port', function() {
       .get('/mock/')
       .set('Accept', 'application/json')
       .expect(200)
-      .expect(['test.js', 'test.json', 'text'])
+      .expect(['_map', 'test.js', 'test.json', 'text'])
       .end(done)
   });
 
@@ -98,6 +98,14 @@ describe('Test Serve2 lib with mock file on 9876 port', function() {
   it('response with data from mock js file', function(done) {
     request(server)
       .get('/test.js')
+      .expect(200)
+      .expect(/Hello, this is javascript file mock result./)
+      .end(done);
+  });
+
+  it('response with data according to mock map file', function(done) {
+    request(server)
+      .get('/mapped')
       .expect(200)
       .expect(/Hello, this is javascript file mock result./)
       .end(done);
