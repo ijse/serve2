@@ -57,6 +57,14 @@ Options:
 
     $ serve2 -M ./mock
     serving E:\worktop\serve2\test-res on port 3000
+    
+  Mock mapping files:
+  
+    // mock/_map
+    /url1 test.js
+    /url2 test.json
+    
+  So that request `/url1` will call `test.js`, and so on.
 
   HTTP Accept support built into `connect.directory()`:
 
