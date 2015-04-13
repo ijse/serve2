@@ -64,7 +64,7 @@ Options:
     /url1 test.js
     /url2 test.json
     
-  So that request `/url1` will call `test.js`, and so on.
+  So that when request `/url1`, it will use mock `test.js`, and so on.
 
   HTTP Accept support built into `connect.directory()`:
 
