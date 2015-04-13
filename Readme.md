@@ -10,6 +10,8 @@
 
 中文说明： https://www.ijser.cn/simple-command-line-node-js-server/
 
+[ ![Codeship Status for ijse/serve2](https://codeship.com/projects/b9dfa670-c3df-0132-ef2d-2afb1ee8c2f8/status?branch=master)](https://codeship.com/projects/73961)
+
 ## Installation
 
     $ npm install -g serve2
