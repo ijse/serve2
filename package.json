@@ -34,7 +34,8 @@
     "serve2": "./bin/serve2"
   },
   "scripts": {
-    "test": "mocha --report spec ./test/test.js"
+    "test": "mocha --report spec ./test/test.js",
+    "coverage": "istanbul cover ./node_modules/mocha/bin/_mocha ./test/test.js"
   },
   "main": "./lib/index.js",
   "devDependencies": {
